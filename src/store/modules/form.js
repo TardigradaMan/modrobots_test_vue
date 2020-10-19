@@ -12,9 +12,10 @@ export default {
     async submitFormData({ commit }, formData) {
       try {
         await axios.post('http://localhost:3000/form', formData)
+        // console.log(formData)
       } catch (error) {
         commit('SET_ERROR')
-        console.error(
+        console.log(
           new Error(`Не удалось отправить данные. Код ошибки: ${error}`)
         )
       }

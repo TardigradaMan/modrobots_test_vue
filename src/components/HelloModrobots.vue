@@ -4,12 +4,17 @@
     <h3>Cсылки</h3>
     <ul>
       <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
+        <a
+          href="https://github.com/TardigradaMan/modrobots_test_vue"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
         >
       </li>
       <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
+        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener"
+          >Firebase</a
+        >
       </li>
     </ul>
   </div>

@@ -1,5 +1,5 @@
 {
-  "data": {
+ 
     "Id": 1,
     "Name": "Я",
     "CanHasQuestions": false,
@@ -16078,14 +16078,5 @@
     ],
     "ParentId": null,
     "Order": 1
-  },
-  "form": [
-    {
-      "name": "Ivan",
-      "email": "1@mail.ru",
-      "phone": "11111111111",
-      "textfield": "проверка формы",
-      "id": 1
-    }
-  ]
-}
+  }
+  

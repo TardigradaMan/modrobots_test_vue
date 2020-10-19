@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/img/logo80.svg" />
-    <HelloWorld
+    <HelloModrobots
       msg="Изменил json файл, для возможности использования
     json-server, добавив два route для меню и формы"
     />
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloModrobots from '@/components/HelloModrobots.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    HelloModrobots
   }
 }
 </script>

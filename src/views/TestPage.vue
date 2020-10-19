@@ -1,10 +1,12 @@
 <template>
   <div class="page">
-    <AppForm
-      :submitStatus="submitStatus"
-      ref="formTestPage"
-      @submit-form="submitForm"
-    />
+    <div class="wrapper">
+      <AppForm
+        :submitStatus="submitStatus"
+        ref="formTestPage"
+        @submit-form="submitForm"
+      />
+    </div>
   </div>
 </template>
 

@@ -41,7 +41,7 @@ export default {
     })
   },
   mounted() {
-    this.$store.dispatch('submitFormData')
+    this.$store.dispatch('getListMenu')
   }
 }
 </script>
