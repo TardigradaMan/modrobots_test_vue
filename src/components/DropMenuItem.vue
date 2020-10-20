@@ -1,9 +1,8 @@
 <template>
-  <!-- :style="{ marginLeft: marginLeft + 10 + 'px' } -->
   <li class="nav-item">
     <div
       :class="{
-        bold: isOpen,
+        'nav-item--bold': isOpen,
         'nav-item__name': item.ParentId,
         'nav-item__head': !item.ParentId
       }"
@@ -31,20 +30,18 @@
       </span>
     </div>
     <ul class="nav-item__list" v-show="isOpen" v-if="isFolder">
-      <Dropdown
-        class="nav-item"
-        v-for="(child, index) in item.Childs"
-        :key="index"
+      <DropMenuItem
+        v-for="child in item.Childs"
+        :key="child.Id"
         :item="child"
-        @add-item="$emit('add-item', $event)"
-      ></Dropdown>
+      ></DropMenuItem>
     </ul>
   </li>
 </template>
 
 <script>
 export default {
-  name: 'Dropdown',
+  name: 'DropMenuItem',
   props: {
     item: {
       type: [Array, Object]
@@ -52,8 +49,7 @@ export default {
   },
   data() {
     return {
-      isOpen: false,
-      marginLeft: 0
+      isOpen: false
     }
   },
   computed: {
@@ -66,12 +62,6 @@ export default {
       if (this.isFolder) {
         this.isOpen = !this.isOpen
       }
-    },
-    makeFolder() {
-      if (!this.isFolder) {
-        this.$emit('make-folder', this.item)
-        this.isOpen = true
-      }
     }
   }
 }
@@ -81,6 +71,10 @@ export default {
 .nav-item {
   cursor: pointer;
   margin: 15px 0;
+
+  &--bold {
+    font-weight: bold;
+  }
 
   &__icon img {
     position: absolute;
@@ -161,12 +155,4 @@ export default {
     color: rgb(182, 182, 182);
   }
 }
-.bold {
-  font-weight: bold;
-}
-// ul {
-//   padding-left: 1em;
-//   line-height: 1.5em;
-//   list-style-type: dot;
-// }
 </style>

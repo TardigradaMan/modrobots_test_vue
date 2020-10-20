@@ -3,8 +3,8 @@
     <div class="wrapper">
       <h3 class="sort-date__title">980</h3>
       <select v-model="sortParam" class="sort-date__select">
-        <option value="1">по возрастанию</option>
-        <option value="0">по убыванию</option>
+        <option value="0">по возрастанию</option>
+        <option value="1">по убыванию</option>
       </select>
       <ul class="sort-date__list">
         <li

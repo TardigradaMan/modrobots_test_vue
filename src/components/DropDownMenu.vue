@@ -1,12 +1,7 @@
 <template>
   <div class="menu-page">
     <ul class="menu-page__nav">
-      <Dropdown
-        class="nav-item"
-        :item="dataListMenu"
-        @make-folder="makeFolder"
-        @add-item="addItem"
-      ></Dropdown>
+      <DropMenuItem :item="dataListMenu"></DropMenuItem>
     </ul>
     <main class="menu-page__body">
       <h3 class="menu-page__title">
@@ -17,24 +12,13 @@
 </template>
 
 <script>
-import Dropdown from './ItemDropMenu'
+import DropMenuItem from './DropMenuItem'
 import { mapState } from 'vuex'
 export default {
   components: {
-    Dropdown
+    DropMenuItem
   },
 
-  methods: {
-    makeFolder: function(item) {
-      this.set(item, 'children', [])
-      this.addItem(item)
-    },
-    addItem: function(item) {
-      item.Childs.push({
-        name: 'new stuff'
-      })
-    }
-  },
   computed: {
     ...mapState({
       dataListMenu: state => state.list.listData

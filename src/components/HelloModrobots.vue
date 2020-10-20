@@ -12,7 +12,10 @@
         >
       </li>
       <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener"
+        <a
+          href="https://modrobots-test-vue.web.app"
+          target="_blank"
+          rel="noopener"
           >Firebase</a
         >
       </li>

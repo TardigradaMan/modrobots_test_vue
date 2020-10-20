@@ -15,9 +15,9 @@ export default {
   actions: {
     async getListMenu({ commit }) {
       try {
-        let { data } = await axios.get('http://localhost:3000/data') // для json-server
+        // let { data } = await axios.get('http://localhost:3000/data') // для json-server
 
-        // let { data } = await axios.get('db.json')
+        let { data } = await axios.get('db.json')
 
         commit('SET_LIST_DATA', data)
       } catch (error) {
