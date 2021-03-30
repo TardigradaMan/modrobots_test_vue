@@ -7,20 +7,20 @@
         <option value="1">по убыванию</option>
       </select>
       <ul class="sort-date__list">
-        <li
-          class="sort-date__item"
-          v-for="item of sortedList"
-          :key="item.value"
-        >
-          {{ item.value }}
+        <li class="sort-date__item" v-for="item of sortedList" :key="item">
+          {{ item }}
         </li>
       </ul>
     </div>
     <h3></h3>
+    {{ sortParam }}
+    {{ sortedList }}
   </div>
 </template>
 
 <script>
+import { range } from '../utils/range'
+
 export default {
   data() {
     return {
@@ -29,34 +29,29 @@ export default {
     }
   },
   created() {
-    const initialValue = 980
-    for (let index = 0; index < 1041; index++) {
-      this.dateList.push({
-        value: String(initialValue + index),
-        text: String(initialValue + index)
-      })
-    }
+    this.dateList = range(980, 1041)
   },
+
   mounted() {
-    document.querySelectorAll('.sort-date__item').forEach(li => {
-      li.addEventListener('click', this.selectItem)
-    })
+    document
+      .querySelector('.sort-date__list')
+      .addEventListener('click', this.selectItem)
   },
   beforeDestroy() {
-    document.querySelectorAll('.sort-date__item').forEach(li => {
-      li.removeEventListener('click', this.selectItem)
-    })
+    document
+      .querySelector('.sort-date__list')
+      .removeEventListener('click', this.selectItem)
   },
   computed: {
     sortedList() {
       switch (this.sortParam) {
         case '0':
           return this.dateList.slice(0).sort((d1, d2) => {
-            return Number(d1.value) - Number(d2.value)
+            return d1 - d2
           })
         case '1':
-          return [...this.dateList].sort((d1, d2) => {
-            return Number(d2.value) - Number(d1.value)
+          return this.dateList.slice(0).sort((d1, d2) => {
+            return d2 - d1
           })
 
         default:
@@ -68,9 +63,9 @@ export default {
     selectItem(event) {
       const title = document.querySelector('.sort-date__title')
       const selectedItem = this.dateList.find(
-        item => item.text == event.target.innerText
+        item => item == event.target.innerText
       )
-      title.textContent = selectedItem.text
+      title.textContent = selectedItem
     }
   }
 }
